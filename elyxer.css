@@ -16,16 +16,18 @@
  *     either class='epydoc' or class='toc' (CSS styles for both
  *     defined below).
  */
-body                        { background: #ffffff; color: #000000; }
-p                           { margin-top: 0.5em; margin-bottom: 0.5em; }
+
+em.summary {font-style:normal}
+body                        { background: #ffffff; color: #000000; font-family:sans-serif; max-width:1200px;margin-right:auto;margin-left:auto; background:aliceblue}
+p                           { margin-top: 0.5em; margin-bottom: 0.5em; padding: 0.2em;}
 a:link                      { color: #0000ff; }
 a:visited                   { color: #204080; }
 dt                          { font-weight: bold; }
-h1                          { font-size: +140%; font-style: italic;
+h1                          { font-size: +140%;
                               font-weight: bold; }
-h2                          { font-size: +125%; font-style: italic;
+h2                          { font-size: +125%;
                               font-weight: bold; }
-h3                          { font-size: +110%; font-style: italic;
+h3                          { font-size: +110%;
                               font-weight: normal; }
 code                        { font-size: 100%; }
 /* N.B.: class, not pseudoclass */
@@ -91,8 +93,8 @@ th.group-header             { background: #c0e0f8; color: #000000;
 table.summary               { border-collapse: collapse;
                               background: #e8f0f8; color: #000000;
                               border: 1px solid #608090;
-                              margin-bottom: 0.5em; }
-td.summary                  { border: 1px solid #608090; }
+                              margin-bottom: 1em; }
+td.summary                  { border: 1px solid #608090; line-height: 1.4em;}
 code.summary-type           { font-size: 85%; }
 table.summary a:link        { color: #0000ff; }
 table.summary a:visited     { color: #204080; }
@@ -167,13 +169,13 @@ ul.subclass-list li { display: inline; }
 
 /* To render variables, classes etc. like functions */
 table.summary .summary-name { color: #006080; font-weight: bold;
-                              font-family: monospace; }
+                              font-family: monospace;font-size:1.1em; }
 table.summary
      a.summary-name:link    { color: #006080; font-weight: bold;
                               font-family: monospace; }
 table.summary
     a.summary-name:visited  { color: #006080; font-weight: bold;
-                              font-family: monospace; }
+                              font-family: monospace; font-size:1.1em;}
 
 /* Variable values
  *   - In the 'variable details' sections, each varaible's value is

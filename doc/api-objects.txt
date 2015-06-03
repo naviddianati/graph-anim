@@ -2,5 +2,4 @@ animate3d	animate3d-module.html
 animate3d.frame_the_graph	animate3d-module.html#frame_the_graph
 animate3d.rgba_to_color_name	animate3d-module.html#rgba_to_color_name
 animate3d.update_depths	animate3d-module.html#update_depths
-animate3d.__package__	animate3d-module.html#__package__
 animate3d.animate	animate3d-module.html#animate

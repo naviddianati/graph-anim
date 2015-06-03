@@ -1,3 +1,8 @@
+'''
+This module allows you to create an animation of a graph with a 3D layout rotating in the 3D space about its centroid. The graph must be specified as an C{igraph.Graph} instance. You may specify an C{igraph.Layout} instance, or let the module compute a 3D C{'fr'} layout for you. You may optionally specify C{'color'} and C{'size'} attributes for the vertex sequence.
+
+The output is a list of C{.png} snapshots of the rotating 3D view at 1 degree intervals. If you have C{ffmpeg} installed, all snapshots will be compiled into an C{.mp4} movie as well.
+'''
 import numpy.random as rd
 from mypalettes import mplPalette
 import numpy as np
@@ -7,17 +12,17 @@ import os
 
 def animate(g, layout = None, filename = "frame" , height = 800, rendermovie = True, outfile = 'anim'):
     """
-    Rotate 3d layout of graph g and export a .png snapshot 
+    Rotate 3d layout of graph C{g} and export a C{.png} snapshot 
     for each angle.
-    If found, the graphs vertex attributes 'size' and 'color'
-    will be use. 'color' should be an RGB  tuple.
-    If layout is None, a 3d FR layout will be computed.
+    If found, the graphs vertex attributes C{size} and C{color}
+    will be use. C{color} should be an RGB  tuple.
+    If layout is None, a 3d C{FR} layout will be computed.
 
-    @param g: igraph Graph.
-    @param layout: 3d igraph Layout.
-    @param filename: filename prefix for .png snapshots.
-    @param height: height of output .png files in pixels.
-    @param rendermovie: whether or not to render a movie from the snapshots. Requires ffmpeg.
+    @param g: an C{igraph.Graph} instance.
+    @param layout: 3d igraph Layout. Optional.
+    @param filename: filename prefix for C{.png} snapshots.
+    @param height: height of output C{.png} files in pixels.
+    @param rendermovie: whether or not to render a movie from the snapshots. Requires C{ffmpeg}.
     @param outfile: filename for output movie.
     """
 
@@ -102,9 +107,9 @@ def frame_the_graph(g):
 def update_depths(g,layout):
     """
     After rotating the 3d layout, update the vertex and edge
-    colors according to the the new depths (z coordinates).
+    colors according to the the new depths (M{z} coordinates).
 
-    @param g: igrpah Graph.
+    @param g: an C{igrpah.Graph} instance.
     @param layout: igraph 3d layout.
     """
     zs = np.array(layout.coords + [[0,0,0]] * 4)[:,2]
@@ -119,8 +124,8 @@ def update_depths(g,layout):
 
 def rgba_to_color_name(rgba):
     '''
-    @param rgba: a 4-tuple of float values in [0,1]
-    @return: a string such as "rgba(100,20,220,0.3)"
+    @param rgba: a 4-tuple of float values in C{[0,1]}
+    @return: a string such as C{"rgba(100,20,220,0.3)"}
     '''
     return "rgba(" + ",".join([str(int(255 * rgba[0])), str(int(255 * rgba[1])), str(int(255 * rgba[2])), '%0.2f' % rgba[3]]) + ")"
 

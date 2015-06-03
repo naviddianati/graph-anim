@@ -45,16 +45,24 @@
         <!-- hide/show private -->
         <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
-        <tr><td align="right"><span class="options"
-            >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="animate3d-module.html"
-            target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
 <h1 class="epydoc">Module animate3d</h1><p class="nomargin-top"><span class="codelink"><a href="animate3d-pysrc.html">source&nbsp;code</a></span></p>
+<p>This module allows you to create an animation of a graph with a 3D 
+  layout rotating in the 3D space about its centroid. The graph must be 
+  specified as an <code>igraph.Graph</code> instance. You may specify an 
+  <code>igraph.Layout</code> instance, or let the module compute a 3D 
+  <code>'fr'</code> layout for you. You may optionally specify 
+  <code>'color'</code> and <code>'size'</code> attributes for the vertex 
+  sequence.</p>
+  <p>The output is a list of <code>.png</code> snapshots of the rotating 3D
+  view at 1 degree intervals. If you have <code>ffmpeg</code> installed, 
+  all snapshots will be compiled into an <code>.mp4</code> movie as 
+  well.</p>
+
 <!-- ==================== FUNCTIONS ==================== -->
 <a name="section-Functions"></a>
 <table class="summary" border="1" cellpadding="3"
@@ -80,12 +88,12 @@
         <tr>
           <td><span class="summary-sig"><a href="animate3d-module.html#animate" class="summary-sig-name">animate</a>(<span class="summary-sig-arg">g</span>,
         <span class="summary-sig-arg">layout</span>=<span class="summary-sig-default">None</span>,
-        <span class="summary-sig-arg">filename</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">frame</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">filename</span>=<span class="summary-sig-default">&quot;frame&quot;</span>,
         <span class="summary-sig-arg">height</span>=<span class="summary-sig-default">800</span>,
         <span class="summary-sig-arg">rendermovie</span>=<span class="summary-sig-default">True</span>,
-        <span class="summary-sig-arg">outfile</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">anim</code><code class="variable-quote">'</code></span>)</span><br />
-      Rotate 3d layout of graph g and export a .png snapshot for each 
-      angle.</td>
+        <span class="summary-sig-arg">outfile</span>=<span class="summary-sig-default">'anim'</span>)</span><br />
+      Rotate 3d layout of graph <code>g</code> and export a 
+      <code>.png</code> snapshot for each angle.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="animate3d-pysrc.html#animate">source&nbsp;code</a></span>
             
@@ -121,7 +129,7 @@
           <td><span class="summary-sig"><a href="animate3d-module.html#update_depths" class="summary-sig-name">update_depths</a>(<span class="summary-sig-arg">g</span>,
         <span class="summary-sig-arg">layout</span>)</span><br />
       After rotating the 3d layout, update the vertex and edge colors 
-      according to the the new depths (z coordinates).</td>
+      according to the the new depths (<i class="math">z</i> coordinates).</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="animate3d-pysrc.html#update_depths">source&nbsp;code</a></span>
             
@@ -139,7 +147,7 @@
         <tr>
           <td><span class="summary-sig"><a href="animate3d-module.html#rgba_to_color_name" class="summary-sig-name">rgba_to_color_name</a>(<span class="summary-sig-arg">rgba</span>)</span><br />
       Returns:
-      a string such as &quot;rgba(100,20,220,0.3)&quot;</td>
+      a string such as <code>&quot;rgba(100,20,220,0.3)&quot;</code></td>
           <td align="right" valign="top">
             <span class="codelink"><a href="animate3d-pysrc.html#rgba_to_color_name">source&nbsp;code</a></span>
             
@@ -147,31 +155,6 @@
         </tr>
       </table>
       
-    </td>
-  </tr>
-</table>
-<!-- ==================== VARIABLES ==================== -->
-<a name="section-Variables"></a>
-<table class="summary" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Variables</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-Variables"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="None">None</code>
     </td>
   </tr>
 </table>
@@ -202,29 +185,30 @@
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">animate</span>(<span class="sig-arg">g</span>,
         <span class="sig-arg">layout</span>=<span class="sig-default">None</span>,
-        <span class="sig-arg">filename</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">frame</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">filename</span>=<span class="sig-default">&quot;frame&quot;</span>,
         <span class="sig-arg">height</span>=<span class="sig-default">800</span>,
         <span class="sig-arg">rendermovie</span>=<span class="sig-default">True</span>,
-        <span class="sig-arg">outfile</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">anim</code><code class="variable-quote">'</code></span>)</span>
+        <span class="sig-arg">outfile</span>=<span class="sig-default">'anim'</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="animate3d-pysrc.html#animate">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>Rotate 3d layout of graph g and export a .png snapshot for each angle.
-  If found, the graphs vertex attributes 'size' and 'color' will be use. 
-  'color' should be an RGB  tuple. If layout is None, a 3d FR layout will 
-  be computed.</p>
+  <p>Rotate 3d layout of graph <code>g</code> and export a 
+  <code>.png</code> snapshot for each angle. If found, the graphs vertex 
+  attributes <code>size</code> and <code>color</code> will be use. 
+  <code>color</code> should be an RGB  tuple. If layout is None, a 3d 
+  <code>FR</code> layout will be computed.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>g</code></strong> - igraph Graph.</li>
-        <li><strong class="pname"><code>layout</code></strong> - 3d igraph Layout.</li>
-        <li><strong class="pname"><code>filename</code></strong> - filename prefix for .png snapshots.</li>
-        <li><strong class="pname"><code>height</code></strong> - height of output .png files in pixels.</li>
+        <li><strong class="pname"><code>g</code></strong> - an <code>igraph.Graph</code> instance.</li>
+        <li><strong class="pname"><code>layout</code></strong> - 3d igraph Layout. Optional.</li>
+        <li><strong class="pname"><code>filename</code></strong> - filename prefix for <code>.png</code> snapshots.</li>
+        <li><strong class="pname"><code>height</code></strong> - height of output <code>.png</code> files in pixels.</li>
         <li><strong class="pname"><code>rendermovie</code></strong> - whether or not to render a movie from the snapshots. Requires 
-          ffmpeg.</li>
+          <code>ffmpeg</code>.</li>
         <li><strong class="pname"><code>outfile</code></strong> - filename for output movie.</li>
     </ul></dd>
   </dl>
@@ -267,11 +251,11 @@
   </tr></table>
   
   <p>After rotating the 3d layout, update the vertex and edge colors 
-  according to the the new depths (z coordinates).</p>
+  according to the the new depths (<i class="math">z</i> coordinates).</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>g</code></strong> - igrpah Graph.</li>
+        <li><strong class="pname"><code>g</code></strong> - an <code>igrpah.Graph</code> instance.</li>
         <li><strong class="pname"><code>layout</code></strong> - igraph 3d layout.</li>
     </ul></dd>
   </dl>
@@ -295,10 +279,10 @@
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>rgba</code></strong> - a 4-tuple of float values in [0,1]</li>
+        <li><strong class="pname"><code>rgba</code></strong> - a 4-tuple of float values in <code>[0,1]</code></li>
     </ul></dd>
     <dt>Returns:</dt>
-        <dd>a string such as &quot;rgba(100,20,220,0.3)&quot;</dd>
+        <dd>a string such as <code>&quot;rgba(100,20,220,0.3)&quot;</code></dd>
   </dl>
 </td></tr></table>
 </div>
@@ -329,7 +313,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat Feb  7 18:49:49 2015
+    Generated by Epydoc 3.0.1 on Wed Jun  3 14:31:36 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
